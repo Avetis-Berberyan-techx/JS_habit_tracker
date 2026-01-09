@@ -1,4 +1,8 @@
-import { cardCreator,createCardEventListener } from "./utils.js";
+import {
+  cardCreator,
+  createCardEventListener,
+  isDoneValidation,
+} from "./utils.js";
 
 const dataContainer = document.getElementById("habitContainer");
 const addHabitButton = document.getElementById("addHabitBtn");
@@ -6,15 +10,15 @@ const habitDescriptionInput = document.getElementById("habitInput");
 const habitCategoryOption = document.getElementById("habitCategory");
 
 // Example initial data
-const initialData = [
-  { category: "Health", description: "Go for a 30-minute walk", isDone: false },
-  { category: "Work", description: "Finish project report", isDone: false },
-  {
-    category: "Personal",
-    description: "Meditate for 10 minutes",
-    isDone: false,
-  },
-];
+// const initialData = [
+//   { category: "Health", description: "Go for a 30-minute walk", isDone: false },
+//   { category: "Work", description: "Finish project report", isDone: false },
+//   {
+//     category: "Personal",
+//     description: "Meditate for 10 minutes",
+//     isDone: false,
+//   },
+// ];
 
 class HabitManager {
   lastId = 1;
@@ -53,6 +57,7 @@ class HabitManager {
       );
       createCardEventListener("click", i, this);
     }
+    isDoneValidation(this.data);
   }
 
   // Add a new habit
@@ -74,7 +79,7 @@ class HabitManager {
 }
 
 // Initialize
-const dataManager = new HabitManager(initialData);
+const dataManager = new HabitManager();
 dataManager.updateData();
 
 // Add habit button

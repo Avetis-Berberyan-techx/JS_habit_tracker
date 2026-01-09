@@ -55,10 +55,12 @@ export function createCardEventListener(event, index, habitManager) {
     delete habitManager.data[index];
     habitManager.updateData();
     habitManager.saveData();
+    console.log(habitManager.data);
+    isDoneValidation(habitManager.data);
   });
 }
 
-// Card HTML
+// creating habit Card
 export function cardCreator(habitCategory, habitDescription, index) {
   return `
         <div class="habit-card" id=${`habit-card-${index}`}>
@@ -73,4 +75,41 @@ export function cardCreator(habitCategory, habitDescription, index) {
           </div>
         </div>
         `;
+}
+
+export function isDoneValidation(habitdata) {
+  for (let [id, habit] of Object.entries(habitdata)) {
+    let currentHabitCategory = document.getElementById(
+      `habit-card__category-${id}`
+    );
+    let currentHabitDescription = document.getElementById(
+      `habit-card__name-${id}`
+    );
+    let currentHabitButton = document.getElementById(
+      `habit-card__button-${id}`
+    );
+    let currentEdit = document.getElementById(`habit-card__edit-${id}`);
+    let currentDelete = document.getElementById(`habit-card__delete-${id}`);
+    let card = document.getElementById(`habit-card-${id}`);
+    if (habit.isDone) {
+      currentHabitCategory.style.cssText = `
+        color: lightgreen;
+        border: 2px solid lightgreen;
+        padding: 0 12px;
+        border-radius: 20px;
+        padding: 10px auto;
+      `;
+      currentHabitDescription.style.cssText = `text-decoration:line-through;`;
+      card.style.cssText = `
+        border: 2px solid lightgreen;
+        background: rgba(16, 185, 129, 0.08);
+      `;
+      currentHabitButton.innerText = "✓ Done";
+    } else {
+      currentHabitCategory.style.cssText = "";
+      currentHabitDescription.style.cssText = "";
+      card.style.cssText = "";
+      currentHabitButton.innerText = "Mark Done";
+    }
+  }
 }
