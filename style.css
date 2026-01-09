@@ -1,0 +1,316 @@
+:root {
+  /* Colors */
+  --color-primary: #667eea;
+  --color-primary-dark: #764ba2;
+  --color-purple-light: #a78bfa;
+  --color-pink: #f472b6;
+  --color-accent: #8b7ad6;
+
+  --color-bg-dark: #0f172a;
+  --color-bg-medium: #1e293b;
+  --color-card-bg: #2a2d3e;
+  --color-card-border: #3a3d4e;
+  --color-card-hover: #4a4d5e;
+
+  --color-white: #ffffff;
+  --color-light-gray: #a0a0a0;
+  --color-muted-gray: #6b6b7b;
+  --color-dark-gray: #333333;
+  --color-gray: #999999;
+
+  --color-border-light: #e0e0e0;
+  --color-border-lighter: #f0f0f0;
+  --color-hover-bg: #f9f9ff;
+
+  --color-health-bg: #e8f5e9;
+  --color-health-text: #2e7d32;
+  --color-work-bg: #e3f2fd;
+  --color-work-text: #1565c0;
+  --color-personal-bg: #fce4ec;
+  --color-personal-text: #c2185b;
+
+  --color-delete-bg: #ffebee;
+  --color-delete-text: #c62828;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: radial-gradient(
+    circle at top right,
+    var(--color-bg-medium),
+    var(--color-bg-dark)
+  );
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.page {
+  margin: 0 auto;
+  width: 90%;
+}
+
+.header {
+  text-align: center;
+  color: var(--color-white);
+  margin-bottom: 40px;
+}
+
+.header__title {
+  font-size: 3rem;
+  letter-spacing: -1px;
+  background: linear-gradient(
+    to right,
+    var(--color-purple-light),
+    var(--color-pink)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header__tagline {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.habit-form {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
+}
+
+.habit-form__input {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: 2px solid var(--color-border-light);
+  border-radius: 8px;
+  transition: border-color 0.3s;
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--color-white);
+}
+
+.habit-form__input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.habit-form__select {
+  width: 30%;
+  padding: 12px 15px;
+  margin: 0 1%;
+  font-size: 1rem;
+  border: 2px solid var(--color-border-light);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--color-white);
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.habit-form__select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.habit-form__button {
+  width: 20%;
+  padding: 14px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-white);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-primary-dark) 100%
+  );
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.habit-form__button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.habit-form__button:active {
+  transform: translateY(0);
+}
+
+.habit-list {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.habit-list__title {
+  font-size: 1.5rem;
+  color: var(--color-dark-gray);
+  margin-bottom: 20px;
+}
+
+.habit-list__empty {
+  text-align: center;
+  color: var(--color-gray);
+  padding: 40px 20px;
+  font-size: 1.1rem;
+}
+
+.habit-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  border: 2px solid var(--color-border-lighter);
+  border-radius: 10px;
+  margin-bottom: 12px;
+  transition: all 0.3s;
+}
+
+.habit-item:hover {
+  border-color: var(--color-primary);
+  background: var(--color-hover-bg);
+}
+
+.habit-item__content {
+  flex: 1;
+}
+
+.habit-item__name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-dark-gray);
+  margin-bottom: 5px;
+}
+
+.habit-item__category {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.habit-item__category--health {
+  background: var(--color-health-bg);
+  color: var(--color-health-text);
+}
+
+.habit-item__category--work {
+  background: var(--color-work-bg);
+  color: var(--color-work-text);
+}
+
+.habit-item__category--personal {
+  background: var(--color-personal-bg);
+  color: var(--color-personal-text);
+}
+
+.habit-item__button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+  margin-left: 8px;
+}
+
+.habit-item__button--delete {
+  background: var(--color-delete-bg);
+  color: var(--color-delete-text);
+}
+
+.habit-item__button--delete:hover {
+  background: var(--color-delete-text);
+  color: var(--color-white);
+}
+
+.habit-list__container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.habit-card {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.habit-card:hover {
+  transform: translateY(-10px);
+}
+
+.habit-card__category {
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  display: inline-block;
+  padding: 0px 15px;
+}
+
+.habit-card__name {
+  color: var(--color-white);
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  font-weight: 600;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.habit-card__button--primary {
+  width: 100%;
+  padding: 14px;
+  background: var(--color-card-border);
+  color: var(--color-white);
+  border: 1px solid var(--color-card-hover);
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.habit-card__button--primary:hover {
+  background: var(--color-card-hover);
+}
+
+.habit-card__actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.habit-card__action {
+  background: none;
+  border: none;
+  color: var(--color-muted-gray);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.habit-card__action:hover {
+  color: var(--color-light-gray);
+}

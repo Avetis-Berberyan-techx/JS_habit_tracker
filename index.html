@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Bloom & Build Habit Tracker</title>
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <h1 class="header__title">Bloom & Build</h1>
+        <p class="header__tagline">Master your routine, one step at a time.</p>
+      </header>
+
+      <main>
+        <section class="habit-form">
+          <input
+            type="text"
+            class="habit-form__input"
+            id="habitInput"
+            placeholder="Enter a new habit..."
+          />
+          <select class="habit-form__select" id="habitCategory">
+            <option value="health">Health</option>
+            <option value="work">Work</option>
+            <option value="personal">Personal</option>
+          </select>
+          <button type="button" class="habit-form__button" id="addHabitBtn">
+            Add Habit
+          </button>
+        </section>
+
+        <section class="habit-list">
+          <div id="habitContainer" class="habit-list__container"></div>
+        </section>
+      </main>
+    </div>
+    <script src="index.js" type="module"></script>
+    <script src="utils.js" type="module"></script>
+  </body>
+</html>
